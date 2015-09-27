@@ -4,7 +4,7 @@
 #
 Name     : WebOb
 Version  : 1.4.1
-Release  : 8
+Release  : 9
 URL      : https://pypi.python.org/packages/source/W/WebOb/WebOb-1.4.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/W/WebOb/WebOb-1.4.1.tar.gz
 Summary  : WSGI request and response object
@@ -25,6 +25,7 @@ No detailed description available
 Summary: python components for the WebOb package.
 Group: Default
 Provides: webob-python
+Requires: nose-python
 
 %description python
 python components for the WebOb package.
@@ -40,12 +41,12 @@ python3 setup.py build -b py3
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 setup.py test
 %install
 rm -rf %{buildroot}
-python2 setup.py build -b py2 install --root=%{buildroot}
-python3 setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot}
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
