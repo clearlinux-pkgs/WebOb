@@ -4,7 +4,7 @@
 #
 Name     : WebOb
 Version  : 1.5.1
-Release  : 16
+Release  : 17
 URL      : https://pypi.python.org/packages/source/W/WebOb/WebOb-1.5.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/W/WebOb/WebOb-1.5.1.tar.gz
 Summary  : WSGI request and response object
