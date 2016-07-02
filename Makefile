@@ -1,5 +1,5 @@
 PKG_NAME := WebOb
-URL := https://pypi.python.org/packages/source/W/WebOb/WebOb-1.6.0.tar.gz
+URL := http://pypi.debian.net/WebOb/WebOb-1.6.1.tar.gz
 ARCHIVES :=
 
 include ../common/Makefile.common
