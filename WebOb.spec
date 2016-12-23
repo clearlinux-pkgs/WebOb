@@ -4,7 +4,7 @@
 #
 Name     : WebOb
 Version  : 1.6.2
-Release  : 25
+Release  : 26
 URL      : http://pypi.debian.net/WebOb/WebOb-1.6.2.tar.gz
 Source0  : http://pypi.debian.net/WebOb/WebOb-1.6.2.tar.gz
 Summary  : WSGI request and response object
