@@ -4,13 +4,16 @@
 #
 Name     : WebOb
 Version  : 1.6.2
-Release  : 28
+Release  : 29
 URL      : http://pypi.debian.net/WebOb/WebOb-1.6.2.tar.gz
 Source0  : http://pypi.debian.net/WebOb/WebOb-1.6.2.tar.gz
 Summary  : WSGI request and response object
 Group    : Development/Tools
 License  : MIT
 Requires: WebOb-python
+Requires: Sphinx
+Requires: coverage
+Requires: nose
 BuildRequires : nose-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -24,16 +27,12 @@ BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-WebOb
 =====
-.. image:: https://travis-ci.org/Pylons/webob.png?branch=master
-:target: https://travis-ci.org/Pylons/webob
 
 %package python
 Summary: python components for the WebOb package.
 Group: Default
 Provides: webob-python
-Requires: nose-python
 
 %description python
 python components for the WebOb package.
@@ -43,8 +42,11 @@ python components for the WebOb package.
 %setup -q -n WebOb-1.6.2
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484584124
+export SOURCE_DATE_EPOCH=1503083423
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -52,16 +54,20 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test
 %install
-export SOURCE_DATE_EPOCH=1484584124
+export SOURCE_DATE_EPOCH=1503083423
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
