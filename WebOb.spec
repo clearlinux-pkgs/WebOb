@@ -4,13 +4,12 @@
 #
 Name     : WebOb
 Version  : 1.7.4
-Release  : 36
+Release  : 37
 URL      : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Source0  : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Summary  : WSGI request and response object
 Group    : Development/Tools
 License  : MIT
-Requires: WebOb-legacypython
 Requires: WebOb-python3
 Requires: WebOb-python
 Requires: Sphinx
@@ -43,7 +42,6 @@ legacypython components for the WebOb package.
 %package python
 Summary: python components for the WebOb package.
 Group: Default
-Requires: WebOb-legacypython
 Requires: WebOb-python3
 Provides: webob-python
 
@@ -68,12 +66,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1511277974
+export SOURCE_DATE_EPOCH=1519137575
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1511277974
+export SOURCE_DATE_EPOCH=1519137575
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
