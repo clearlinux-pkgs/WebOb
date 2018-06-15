@@ -4,20 +4,20 @@
 #
 Name     : WebOb
 Version  : 1.7.4
-Release  : 42
+Release  : 43
 URL      : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Source0  : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Summary  : WSGI request and response object
 Group    : Development/Tools
 License  : MIT
 Requires: WebOb-python3
+Requires: WebOb-license
 Requires: WebOb-python
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
@@ -34,6 +34,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the WebOb package.
+
+
+%package license
+Summary: license components for the WebOb package.
+Group: Default
+
+%description license
+license components for the WebOb package.
 
 
 %package python
@@ -63,13 +71,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528565140
+export SOURCE_DATE_EPOCH=1529095014
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1528565140
+export SOURCE_DATE_EPOCH=1529095014
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/WebOb
+cp docs/license.txt %{buildroot}/usr/share/doc/WebOb/docs_license.txt
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -82,6 +92,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/WebOb/docs_license.txt
 
 %files python
 %defattr(-,root,root,-)
