@@ -4,7 +4,7 @@
 #
 Name     : WebOb
 Version  : 1.7.4
-Release  : 45
+Release  : 46
 URL      : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Source0  : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Summary  : WSGI request and response object
@@ -18,6 +18,8 @@ BuildRequires : pip
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
@@ -71,12 +73,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1529095014
+export SOURCE_DATE_EPOCH=1530378234
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1529095014
+export SOURCE_DATE_EPOCH=1530378234
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/WebOb
 cp docs/license.txt %{buildroot}/usr/share/doc/WebOb/docs_license.txt
