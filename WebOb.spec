@@ -4,7 +4,7 @@
 #
 Name     : WebOb
 Version  : 1.7.4
-Release  : 47
+Release  : 48
 URL      : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Source0  : http://pypi.debian.net/WebOb/WebOb-1.7.4.tar.gz
 Summary  : WSGI request and response object
