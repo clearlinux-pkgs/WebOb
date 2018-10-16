@@ -2,3 +2,4 @@
 WSGIProxy2
 WebTest
 pyquery
+repoze.who
