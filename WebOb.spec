@@ -4,7 +4,7 @@
 #
 Name     : WebOb
 Version  : 1.8.4
-Release  : 53
+Release  : 54
 URL      : https://files.pythonhosted.org/packages/e4/6c/99e322c3d4cc11d9060a67a9bf2f7c9c581f40988c11fffe89bb8c36bc5e/WebOb-1.8.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e4/6c/99e322c3d4cc11d9060a67a9bf2f7c9c581f40988c11fffe89bb8c36bc5e/WebOb-1.8.4.tar.gz
 Summary  : WSGI request and response object
