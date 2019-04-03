@@ -4,7 +4,7 @@
 #
 Name     : WebOb
 Version  : 1.8.5
-Release  : 57
+Release  : 58
 URL      : https://files.pythonhosted.org/packages/9d/1a/0c89c070ee2829c934cb6c7082287c822e28236a4fcf90063e6be7c35532/WebOb-1.8.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/9d/1a/0c89c070ee2829c934cb6c7082287c822e28236a4fcf90063e6be7c35532/WebOb-1.8.5.tar.gz
 Summary  : WSGI request and response object
@@ -13,7 +13,6 @@ License  : MIT
 Requires: WebOb-license = %{version}-%{release}
 Requires: WebOb-python = %{version}-%{release}
 Requires: WebOb-python3 = %{version}-%{release}
-BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
@@ -27,15 +26,6 @@ WebOb
 =====
 .. image:: https://travis-ci.org/Pylons/webob.png?branch=master
 :target: https://travis-ci.org/Pylons/webob
-
-%package legacypython
-Summary: legacypython components for the WebOb package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the WebOb package.
-
 
 %package license
 Summary: license components for the WebOb package.
@@ -72,27 +62,22 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546553713
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554330169
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1546553713
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/WebOb
 cp docs/license.txt %{buildroot}/usr/share/package-licenses/WebOb/docs_license.txt
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files license
 %defattr(0644,root,root,0755)
