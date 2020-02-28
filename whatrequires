@@ -1,5 +1,6 @@
 # This file contains recursive sources that require this package
 WSGIProxy2
+WSME
 WebTest
 barbican
 cinder
@@ -19,3 +20,4 @@ osprofiler
 pyquery
 repoze.who
 sahara
+zVMCloudConnector
