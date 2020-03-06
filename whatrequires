@@ -5,6 +5,7 @@ WebTest
 barbican
 cinder
 glance
+heat
 ironic
 keystone
 keystonemiddleware
@@ -17,6 +18,7 @@ oslo.middleware
 oslo.service
 oslo.versionedobjects
 osprofiler
+pecan
 pyquery
 repoze.who
 sahara
