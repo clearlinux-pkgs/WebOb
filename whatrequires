@@ -1,25 +1,5 @@
 # This file contains recursive sources that require this package
 WSGIProxy2
-WSME
 WebTest
-barbican
-cinder
-glance
-heat
-ironic
-keystone
-keystonemiddleware
-microversion_parse
-neutron
-neutron-lib
-nova
-oslo.messaging
-oslo.middleware
-oslo.service
-oslo.versionedobjects
-osprofiler
 pecan
 pyquery
-repoze.who
-sahara
-zVMCloudConnector
